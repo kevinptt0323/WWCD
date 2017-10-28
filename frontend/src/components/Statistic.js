@@ -1,4 +1,5 @@
 import React from 'react';
+import Highcharts from 'react-highcharts'
 
 class Statistic extends React.Component {
   constructor(props) {
@@ -6,9 +7,7 @@ class Statistic extends React.Component {
   }
   render() {
     return (
-      <div>
-        Statistic
-      </div>
+      <div>Statistic</div>
     );
   }
 }

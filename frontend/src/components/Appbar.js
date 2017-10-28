@@ -33,9 +33,15 @@ class Appbar extends React.Component {
         >
           <Tab
             component={Link}
-            to="/logs"
-            value="logs"
+            to="/transactions"
+            value="transactions"
             label="交易紀錄"
+          />
+          <Tab
+            component={Link}
+            to="/report"
+            value="report"
+            label="報表"
           />
           <Tab
             component={Link}
