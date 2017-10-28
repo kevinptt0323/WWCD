@@ -10,7 +10,6 @@ import { createStore } from './store';
 const history = createHashHistory();
 const store = createStore(history);
 
-
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
