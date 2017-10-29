@@ -26,7 +26,7 @@ const config = {
     style: { color: "#ccc" },
   },
   subtitle: {
-    text: 'Sold Items',
+    text: 'Sold Goods',
     style: { color: "#aaa" },
   },
   plotOptions: {
@@ -43,7 +43,7 @@ const config = {
 };
 
 const mapStateWithProps = state => ({
-  username: 'BIGGGG',
+  username: 'NCTU',
 });
 
 @connect(mapStateWithProps)
@@ -76,7 +76,7 @@ class Report extends React.Component {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><Typography type="subheading">Item Name</Typography></TableCell>
+              <TableCell><Typography type="subheading">Goods Name</Typography></TableCell>
               <TableCell><Typography type="subheading">Amount</Typography></TableCell>
               <TableCell><Typography type="subheading">Total</Typography></TableCell>
             </TableRow>

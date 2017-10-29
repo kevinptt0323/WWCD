@@ -5,7 +5,7 @@ import Highcharts from 'react-highcharts'
 import Paper from 'material-ui/Paper';
 
 const mapStateWithProps = state => ({
-  username: 'BIGGGG',
+  username: 'NCTU',
 });
 
 const config = {

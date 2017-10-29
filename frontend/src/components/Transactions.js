@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper';
 
 const mapStateWithProps = state => ({
-  username: 'BIGGGG',
+  username: 'NCTU',
 });
 
 @connect(mapStateWithProps)

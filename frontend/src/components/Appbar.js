@@ -8,6 +8,8 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
+const username = 'NCTU';
+
 @withRouter
 class Appbar extends React.Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class Appbar extends React.Component {
       <AppBar position="static">
         <Toolbar>
           <Typography type="title">
-            WWCD
+            WWCD - ZyXEL Business Cloud
           </Typography>
         </Toolbar>
         <Tabs
@@ -31,6 +33,12 @@ class Appbar extends React.Component {
           value={pathname.slice(1)}
           textColor="accent"
         >
+          <Tab
+            component={Link}
+            to="/transactions"
+            value="username"
+            label={`使用者：${username}`}
+          />
           <Tab
             component={Link}
             to="/transactions"
@@ -49,6 +57,7 @@ class Appbar extends React.Component {
             value="statistic"
             label="Statistic 統計資料"
           />
+          {/*
           <Tab
             component={Link}
             to="/manage"
@@ -61,6 +70,7 @@ class Appbar extends React.Component {
             value="setting"
             label="Setting 設定"
           />
+          */}
         </Tabs>
       </AppBar>
     );
