@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper';
 
 const mapStateWithProps = state => ({
@@ -31,9 +32,9 @@ class Report extends React.Component {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>item_name</TableCell>
-              <TableCell>amount</TableCell>
-              <TableCell>total</TableCell>
+              <TableCell><Typography type="subheading">Item Name</Typography></TableCell>
+              <TableCell><Typography type="subheading">Amount</Typography></TableCell>
+              <TableCell><Typography type="subheading">Total</Typography></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
