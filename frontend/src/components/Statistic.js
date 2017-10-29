@@ -54,6 +54,7 @@ const config = {
   },
 
   series: [{
+    name: 'Customers',
     type: 'area',
     data: []
   }]
@@ -74,10 +75,8 @@ class Statistic extends React.Component {
         this.setState({ data: data.data });
         const chart = this.chart.getChart();
         const series = chart.series[0];
-        const points = data.data.forEach(({count, start,}, idx) => {
-          series.addPoint([new Date(start).getTime(), count], false);
-        });
-        chart.redraw();
+        const points = data.data.map(({ count, start }) => [new Date(start).getTime(), count]);
+        series.setData(points);
       });
   }
   render() {

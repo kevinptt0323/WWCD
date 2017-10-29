@@ -1,9 +1,46 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Highcharts from 'react-highcharts'
 
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper';
+
+const config = {
+  chart: {
+    type: 'pie',
+    backgroundColor: {
+      linearGradient: { x1:0, y1:0, x2:1, y2:1 },
+      stops: [
+        [0, "#2a2a2b"],
+        [1, "#3e3e40"]
+      ]
+    },
+    options3d: {
+      enabled: true,
+      alpha: 45
+    }
+  },
+  title: {
+    text: '售出物品統計',
+    style: { color: "#ccc" },
+  },
+  subtitle: {
+    text: 'Sold Items',
+    style: { color: "#aaa" },
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      depth: 45
+    }
+  },
+  series: [{
+    name: 'Amount',
+    data: []
+  }]
+};
 
 const mapStateWithProps = state => ({
   username: 'BIGGGG',
@@ -17,10 +54,16 @@ class Report extends React.Component {
     this.state = {
       data: [],
     }
+  }
+  componentDidMount() {
     fetch(`http://pubg.nctu.me:8000/v1/transaction/${this.props.username}/report/`)
       .then(res => res.json())
       .then(data => {
         this.setState({ data: data.data });
+        const chart = this.chart.getChart();
+        const series = chart.series[0];
+        const points = data.data.map(({ item_name, amount }) => [item_name, amount]);
+        series.setData(points);
       });
   }
   render() {
@@ -29,6 +72,7 @@ class Report extends React.Component {
     } = this.state;
     return (
       <Paper>
+        <Highcharts config={config} ref={node => { this.chart = node; }} />
         <Table>
           <TableHead>
             <TableRow>
