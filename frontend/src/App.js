@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 import { MuiThemeProvider, createMuiTheme, withStyles } from 'material-ui/styles';
 import cyan from 'material-ui/colors/cyan'
+import deepOrange from 'material-ui/colors/deepOrange'
+import grey from 'material-ui/colors/grey'
 
 import {
   Appbar,
@@ -17,16 +19,20 @@ import {
 
 const theme = createMuiTheme({
   palette: {
-    primary: cyan,
+    primary: grey,
+    secondary: deepOrange,
+    type: 'dark',
   },
 });
 
 const styles = {
   root: {
+    display: 'flex',
+    flexDirection: 'column',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     overflow: 'auto',
-    paddingTop: '112px' 
+    background: grey[900],
   }
 };
 
@@ -44,14 +50,16 @@ class App extends PureComponent {
       <MuiThemeProvider theme={theme}>
         <div className={classNames(classes.root)}>
           <Appbar />
-          <Switch>
-            <Route exact path="/transactions" component={Transactions}/>
-            <Route exact path="/report" component={Report}/>
-            <Route exact path="/statistic" component={Statistic}/>
-            <Route exact path="/manage" component={Manage}/>
-            <Route exact path="/setting" component={Setting}/>
-            <Redirect from='/' to='/transactions' />
-          </Switch>
+          <div style={{ overflow: 'auto' }}>
+            <Switch>
+              <Route exact path="/transactions" component={Transactions}/>
+              <Route exact path="/report" component={Report}/>
+              <Route exact path="/statistic" component={Statistic}/>
+              <Route exact path="/manage" component={Manage}/>
+              <Route exact path="/setting" component={Setting}/>
+              <Redirect from='/' to='/transactions' />
+            </Switch>
+          </div>
         </div>
       </MuiThemeProvider>
     );

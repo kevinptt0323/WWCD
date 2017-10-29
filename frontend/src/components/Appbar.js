@@ -20,7 +20,7 @@ class Appbar extends React.Component {
       }
     } = this.props;
     return (
-      <AppBar>
+      <AppBar position="static">
         <Toolbar>
           <Typography type="title">
             WWCD
@@ -35,31 +35,31 @@ class Appbar extends React.Component {
             component={Link}
             to="/transactions"
             value="transactions"
-            label="交易紀錄"
+            label="Transactions 交易紀錄"
           />
           <Tab
             component={Link}
             to="/report"
             value="report"
-            label="報表"
+            label="Report 報表"
           />
           <Tab
             component={Link}
             to="/statistic"
-            label="統計資料"
             value="statistic"
+            label="Statistic 統計資料"
           />
           <Tab
             component={Link}
             to="/manage"
-            label="系統管理"
             value="manage"
+            label="Manage 系統管理"
           />
           <Tab
             component={Link}
             to="/setting"
-            label="設定"
             value="setting"
+            label="Setting 設定"
           />
         </Tabs>
       </AppBar>
